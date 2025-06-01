@@ -1,0 +1,13 @@
+body {
+  background-color: ghostwhite;
+  font-family: system-ui;
+}
+
+h1 {
+  color: midnightblue;
+}
+
+p {
+  font-size: 20px;
+  color: dimgrey;
+}
