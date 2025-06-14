@@ -6,10 +6,19 @@
   justify-content: start;
 }
 
-.container > div {
+.container-element-hidden {
   background-color: #f1f1f1;
   border: 1px solid black;
   padding: 20px;
   font-size: 30px;
   text-align: center;
 }
+
+.container-element-01 {
+  background-color: #ff00ff;
+  border: 1px solid green;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
