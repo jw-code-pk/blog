@@ -6,19 +6,25 @@
   justify-content: start;
 }
 
-.container-element-hidden {
+.tile-hidden {
   background-color: #f1f1f1;
   border: 1px solid black;
   padding: 20px;
-  font-size: 30px;
   text-align: center;
 }
 
-.container-element-01 {
-  background-color: #ff00ff;
-  border: 1px solid green;
+.tile-nothing {
+  background-color: #000000
+  border: 1px solid gray;
   padding: 20px;
-  font-size: 30px;
+  text-align: center;
+}
+
+
+.tile-x {
+  background-color: #ff0000;
+  border: 1px solid gray;
+  padding: 20px;
   text-align: center;
 }
 
