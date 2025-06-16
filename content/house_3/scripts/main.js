@@ -4,7 +4,7 @@ const map = [
   "................",
   "vvxxnx..........",
   "vvxoox..........",
-  "vvxoox..........",
+  "vvxoox..........", 
   "xHxooxxxxnxxxx..",
   "xoooooooooooox..",
   "xxnxxxxoxxx.xx..",
@@ -20,9 +20,14 @@ const map = [
 ]
 
 const props = {
-  "x": { "alert": "hi!", "type": "tile-x"  }
+  "x": { "msg": "It's a wall.", "type": "tile-x" },
 }
 
+let infoPanel = null;
+
+function displayMapInfo(msg) {
+  infoPanel.innerText = msg;
+}
 
 function onGridClick(event) {
   const target = event.target;
@@ -34,12 +39,21 @@ function onGridClick(event) {
 
   if (p != null) {
     const type = p["type"];
+    const msg = p["msg"];
 
     if (type != null) {
-      target.className = type; 
+      target.className = type;
+      target.innerText = tile;
     }
+
+    if (msg != null) {
+      displayMapInfo(msg);
+    }
+
   } else {
     target.className = "tile-nothing";
+    target.innerText = ".";
+    displayMapInfo("...nothing.");
   }
 
   console.log(`Handle click at: <${tileX}, <${tileY}>`);
@@ -47,7 +61,7 @@ function onGridClick(event) {
 
 
 function populateGrid() {
-  const buttonGrid = document.getElementById("button-grid");
+  const buttonGrid = document.getElementById("map-display");
   const mapDim = 16;
 
   for (i = 0; i < 256; i++) {
@@ -59,6 +73,7 @@ function populateGrid() {
     const tile = map[mapY][mapX];
 
     currentDiv.className = "tile-hidden";
+    currentDiv.innerText = "#";
     currentDiv.attributes["x"] = mapX;
     currentDiv.attributes["y"] = mapY;
 
@@ -69,5 +84,6 @@ function populateGrid() {
 
 
 function main() {
+  infoPanel = document.getElementById("map-info");
   populateGrid();
 }
